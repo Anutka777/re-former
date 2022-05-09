@@ -9,7 +9,8 @@
   <input type="submit" value="Send">
 </form> -->
 
-<%= form_tag("/users", method: "post") do %>
+<%
+=begin form_tag("/users", method: "post") do %>
   <%= label_tag(:username, "Username") %>
   <%= text_field_tag(:username) %>
 
@@ -20,4 +21,18 @@
   <%= password_field_tag(:password) %>
 
   <%= submit_tag("Send") %>
+<% 
+=end %>
+
+<%= form_with model: @user do |f| %>
+  <%= f.label :username, 'Username' %>
+  <%= f.text_field :username, value: 'Roman'%>
+
+  <%= f.label :email, 'E-mail' %>
+  <%= f.email_field :email, placeholder: 'example@email.com' %>
+
+  <%= f.label :password, 'Password' %>
+  <%= f.password_field :password, value: '1234' %>
+
+  <%= f.submit 'Send' %>
 <% end %>
