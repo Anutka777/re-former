@@ -1,3 +1,13 @@
+<div class="errors">
+  <% unless @user.errors.full_messages.empty? %>
+    <% @user.errors.full_messages.each do |m| %>
+      <p style="color:red;">
+        <%= m %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
+
 <!-- <form action="/users" method="post" accept-charset="utf-8">
   <input type="hidden" name="authenticity_token" value="ajgHJH85lJGhfDSFHD42jf">
   <label for="username">Username</label>
@@ -34,5 +44,5 @@
   <%= f.label :password, 'Password' %>
   <%= f.password_field :password, value: '1234' %>
 
-  <%= f.submit 'Send' %>
+  <%= f.submit %>
 <% end %>
